@@ -13,7 +13,8 @@
     let firstAreas = [];
     let secondAreas = [];
     let minAreas = [];
-    const labels = ['woody','gourmand','floral','clean','citrus','fruity','earthy','herbal'];
+    //const labels = ['woody','gourmand','floral','clean','citrus','fruity','earthy','herbal'];
+    const labels = ['earthy','herbal','woody','gourmand','floral','clean','citrus','fruity'];
 
     $: {
         minSet = firstSet.map((value, i) => Math.min(value, secondSet[i]));
@@ -95,7 +96,7 @@
     
 </svg>
 <p>{((totalMinArea*2)/(totalFirstArea+totalSecondArea)*100).toFixed(2)}% match</p>
-<ChangeCandleWeights candle={scentName} currCandleWeights={secondSet.map((x) => x/10)}/>
+<ChangeCandleWeights candle={scentName}/>
 </div>
 
 <style>

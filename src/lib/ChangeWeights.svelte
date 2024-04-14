@@ -17,10 +17,22 @@
 
     let currWeights = $questionWeights
 
-    function saveWeights() {
-        questionWeights.set(currWeights)
+    let justSaved = false;
+    
+    function saveTimer() {
+        setTimeout(() => {
+            justSaved = false;
+        }, 600);
     }
 
+
+    function saveWeights() {
+        questionWeights.set(currWeights)
+        justSaved = true;
+        saveTimer();
+    }
+
+    
 
     function handleInput(event) {
         let q = event.target.id;
@@ -33,7 +45,7 @@
 
     function saveAndRestart() {
         saveWeights();
-        currentQuestion.set(0);
+        window.location.reload();
     }
 
     function closeEditor() {
@@ -62,7 +74,7 @@
     {#if !editWeights}
     <button type="button" on:click={closeEditor}>Change Question {$currentQuestion} weights</button>
     {:else}
-    <button type="button" on:click={closeEditor}>X</button>
+    <button type="button" style="margin-bottom: 5px" on:click={closeEditor}>close</button>
     {/if}
 </div>
 {/if}
@@ -95,11 +107,20 @@
         <input style="width: 150px;" bind:value={categoryName} placeholder="Enter new category">
         <button on:click={() => addCategory(categoryName)}>add</button>
     {/if}
-    <button type="button" on:click={saveWeights}>Save</button>
-    <button type="button" on:click={saveAndRestart}>Save and Restart</button>
+    <p class="{justSaved? 'notify':'hidden'}">weights saved!</p>
+    <div style="display:flex; margin:auto; gap:5px; width: 250px; justify-content: center;">        
+        <button type="button" on:click={saveWeights}>Save</button>
+        <button type="button" on:click={saveAndRestart}>Save and Restart</button>
+    </div>
 </form>
 
 <style>
+    .notify {
+        color: green;
+        text-align: center;
+        width: 250px;
+        margin: auto;
+    }
     .hidden {
         display: none;
     }

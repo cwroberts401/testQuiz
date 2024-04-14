@@ -7,6 +7,7 @@
     import { candles } from '../candleStore';
     import { writable, derived } from 'svelte/store';
     import Reset from '../lib/Reset.svelte';
+    import ShowAllWeights from '../lib/ShowAllWeights.svelte';
 
     let alerts = {"lemon":[],"breezy":[],"smokey":[],"toasty":[],"cheeky":[],"dewy":[]};
 
@@ -187,6 +188,7 @@
         <ResultChart firstSet={$multipliedValues} secondSet={dewyDaysVals.map((x) => x*10)} scentName='Dewy Days'alerts={alerts.dewy}/>
 
     </div>
+    <ShowAllWeights />
     <Reset />
 
 <style>
