@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/testQuiz/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="modulepreload" href="/testQuiz/_app/immutable/entry/start.CMYy9qdh.js">
+		<link rel="modulepreload" href="/testQuiz/_app/immutable/chunks/entry.LBvzrYpt.js">
+		<link rel="modulepreload" href="/testQuiz/_app/immutable/chunks/scheduler.DBOhYq2n.js">
+		<link rel="modulepreload" href="/testQuiz/_app/immutable/chunks/index.BuBMxhbg.js">
+		<link rel="modulepreload" href="/testQuiz/_app/immutable/entry/app.Bu4hiLeS.js">
+		<link rel="modulepreload" href="/testQuiz/_app/immutable/chunks/index.CnLVck7H.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_1dfbl1y = {
+						base: "/testQuiz",
+						assets: "/testQuiz"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/testQuiz/_app/immutable/entry/start.CMYy9qdh.js"),
+						import("/testQuiz/_app/immutable/entry/app.Bu4hiLeS.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
