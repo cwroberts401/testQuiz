@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Lemon Fizz",
+      "scentNotes": ["vanilla", "smoke", "lavender"],
+      "scentValues": {
+        "fresh": 7,
+        "warm": 1,
+        "woody": 3,
+        "clean": 6,
+        "floral": 2,
+        "earthy": 9
+      }
+    },
+    {
+      "name": "Golden Moon",
+      "scentNotes": ["citrus", "pine", "peppermint"],
+      "scentValues": {
+        "fresh": 10,
+        "warm": 8,
+        "woody": 2,
+        "clean": 5,
+        "floral": 4,
+        "earthy": 1
+      }
+    },
+    {
+      "name": "Cheeky Rose",
+      "scentNotes": ["rose", "sandalwood", "jasmine"],
+      "scentValues": {
+        "fresh": 3,
+        "warm": 6,
+        "woody": 8,
+        "clean": 4,
+        "floral": 10,
+        "earthy": 2
+      }
+    },
+    {
+      "name": "Breezy Bay",
+      "scentNotes": ["oak", "lavender", "sandalwood"],
+      "scentValues": {
+        "fresh": 2,
+        "warm": 5,
+        "woody": 9,
+        "clean": 3,
+        "floral": 1,
+        "earthy": 7
+      }
+    }
+  ]
+  
