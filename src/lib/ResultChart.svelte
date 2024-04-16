@@ -7,6 +7,7 @@
     export let scentName = 'none';
     export let alerts = [];
     let minSet = [];
+    let minSet0 = [];
     let firstTriangles = [];
     let secondTriangles = [];
     let minTriangles = [];
@@ -18,6 +19,7 @@
 
     $: {
         minSet = firstSet.map((value, i) => Math.min(value, secondSet[i]));
+        minSet0 = minSet.map((value) => Math.max(value, 0));
         recalculateTriangles();
     }
 
@@ -29,9 +31,9 @@
         secondAreas = [];
         minAreas = [];
 
-        calculateTriangles(firstSet, firstTriangles, firstAreas);
+        calculateTriangles(firstSet.map((triangle) => triangle < 0? triangle = 0: triangle), firstTriangles, firstAreas);
         calculateTriangles(secondSet, secondTriangles, secondAreas);
-        calculateTriangles(minSet, minTriangles, minAreas);
+        calculateTriangles(minSet0, minTriangles, minAreas);
     }
 
     function calculateTriangles(radii, triangleList, areaList) {
@@ -50,10 +52,32 @@
         }
     }
 
+    /**
+    function findUndrawnTriangles(tri){
+        console.log(tri)
+        console.log(tri.length)
+        for (let i = 0; i < tri.length; i++){
+            if (i === 0){if (tri[i] > 0 && tri[i+1] === 0 && tri[tri.length-1] === 0){
+                console.log("first is not shown")
+                minTriangles[i] = Math.min
+            }} else if (i < tri.length-2) {
+            if (tri[i] > 0 && tri[i+1] === 0 && tri[i-1] === 0){
+                console.log(`unshown triange at ${i}`)
+            }} else {
+                console.log(i)
+                if (tri[i] > 0 && tri[i-1] === 0 && tri[0] === 0){
+                console.log("last is not shown")    
+                }
+            }
+        }
+    }
+    */
+
     $: totalFirstArea = firstAreas.reduce((a, b) => a + b, 0);
     $: totalSecondArea = secondAreas.reduce((a, b) => a + b, 0);
     $: totalMinArea = minAreas.reduce((a, b) => a + b, 0);
     $: matchPercentage = ((totalMinArea*2) / (totalFirstArea + totalSecondArea) * 100).toFixed(2);
+    //$: findUndrawnTriangles(firstSet)
 </script>
 
 
