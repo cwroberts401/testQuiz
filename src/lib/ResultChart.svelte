@@ -52,32 +52,45 @@
         }
     }
 
-    /**
+    const undrawnTri = []
+    const triLabels = ['woody','gourmand','floral','clean','citrus','fruity','earthy','herbal'];
+
+    
     function findUndrawnTriangles(tri){
-        console.log(tri)
-        console.log(tri.length)
         for (let i = 0; i < tri.length; i++){
             if (i === 0){if (tri[i] > 0 && tri[i+1] === 0 && tri[tri.length-1] === 0){
-                console.log("first is not shown")
-                minTriangles[i] = Math.min
+                undrawnTri.push(triLabels[i])
+                //console.log("first triangle is not shown")
             }} else if (i < tri.length-2) {
             if (tri[i] > 0 && tri[i+1] === 0 && tri[i-1] === 0){
-                console.log(`unshown triange at ${i}`)
+                //console.log(`unshown triangle at ${i}`)
+                undrawnTri.push(triLabels[i])
             }} else {
-                console.log(i)
                 if (tri[i] > 0 && tri[i-1] === 0 && tri[0] === 0){
-                console.log("last is not shown")    
+                //console.log("last triangle is not shown")
+                undrawnTri.push(triLabels[i])    
                 }
             }
         }
     }
-    */
+
+    //assume the max disaggrement is 10
+    let pointsMatch = firstSet.map((num, i) => Math.min(Math.abs(secondSet[i]-num),10));
+    
+
+    function pointMatcher(arr){
+        let pointsDiff = arr.map((num, i) => Math.min(Math.abs(secondSet[i]-num),100));
+        const sum = pointsDiff.reduce((a, b) => a + b, 0);
+        const avg = (sum / pointsDiff.length) || 0;
+        return (100-avg)/100
+    }
+    
 
     $: totalFirstArea = firstAreas.reduce((a, b) => a + b, 0);
     $: totalSecondArea = secondAreas.reduce((a, b) => a + b, 0);
     $: totalMinArea = minAreas.reduce((a, b) => a + b, 0);
-    $: matchPercentage = ((totalMinArea*2) / (totalFirstArea + totalSecondArea) * 100).toFixed(2);
-    //$: findUndrawnTriangles(firstSet)
+    $: matchPercentage = totalFirstArea === 0 && totalSecondArea === 0? (pointMatcher(firstSet)*100).toFixed(2) : ((((totalMinArea || 0*2) / (totalFirstArea || 0 + totalSecondArea || 0) + pointMatcher(firstSet))/2) * 100).toFixed(2);
+    $: findUndrawnTriangles(firstSet), undrawnTri;
 </script>
 
 
@@ -119,7 +132,10 @@
     {/each}
     
 </svg>
-<p>{((totalMinArea*2)/(totalFirstArea+totalSecondArea)*100).toFixed(2)}% match</p>
+{#if undrawnTri.length > 0}
+    <span> there is an unshown point value for because both neighboring scents have a value of 0</span>
+{/if}
+<p>{matchPercentage}% match</p>
 <ChangeCandleWeights candle={scentName}/>
 </div>
 
