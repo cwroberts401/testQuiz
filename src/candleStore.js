@@ -4,7 +4,7 @@ import { createPersistedStore } from './persistedStore';
 export const candles = createPersistedStore('candles',[
     {
       "name": "Lemon Fizz",
-      "scentNotes": ["lemon", "rosemary", "bergamont", "sheer musk"],
+      "scentNotes": ["lemon", "rosemary", "bergamont", "sheer musk", "citrus", "jasmine", "musk", "musky", "palo santo"],
       "scentValues": {
         "woody": 0,
         "gourmand": 1,
@@ -18,7 +18,7 @@ export const candles = createPersistedStore('candles',[
     },
     {
         "name": "Breezy Bay",
-        "scentNotes": ["cashemere woods", "sea salt", "wild fig", "orchid"],
+        "scentNotes": ["cashemere woods", "sea salt", "wild fig", "orchid", "ocean", "beachy", "fig", "salt", "sage"],
         "scentValues": {
           "woody": 0,
           "gourmand": 1,
@@ -32,7 +32,7 @@ export const candles = createPersistedStore('candles',[
     },
     {
         "name": "Smokey Haze",
-        "scentNotes": ["cognac", "black leather", "tobacco leaf", "cade"],
+        "scentNotes": ["cognac", "black leather", "tobacco leaf", "cade", "wood", "woody", "tobacco", "leather", "smokey", "mandarin", "orange"],
         "scentValues": {
           "woody": 9,
           "gourmand": 2,
@@ -46,7 +46,7 @@ export const candles = createPersistedStore('candles',[
     },
     {
         "name": "Toasty Vanilla",
-        "scentNotes": ["vanilla cream", "cedarwood", "burnt sugar", "palo santo"],
+        "scentNotes": ["vanilla cream", "cedarwood", "burnt sugar", "palo santo", "vanilla", "cedar"],
         "scentValues": {
           "woody": 8,
           "gourmand": 9,
@@ -60,7 +60,7 @@ export const candles = createPersistedStore('candles',[
     },
     {
         "name": "Cheeky Rose",
-        "scentNotes": ["pink pepper", "lychee", "rose", "blonde woods"],
+        "scentNotes": ["pink pepper", "lychee", "rose", "blonde woods", "pepper", "floral"],
         "scentValues": {
           "woody": 3,
           "gourmand": 2,
@@ -74,7 +74,7 @@ export const candles = createPersistedStore('candles',[
     },
     {
         "name": "Dewy Days",
-        "scentNotes": ["dewy apple", "peony", "lotus blossom", "vanilla bean"],
+        "scentNotes": ["dewy apple", "peony", "lotus blossom", "vanilla bean", "apple", "vanilla", "floral"],
         "scentValues": {
           "woody": 2,
           "gourmand": 5,

@@ -1,5 +1,5 @@
 <script>
-    import { scentVals, resetQ, currentQuestion } from "../stores";
+    import { scentVals, resetQ, currentQuestion, percentMatch } from "../stores";
     import ChangeCandleWeights from "./ChangeCandleWeights.svelte";
 
     export let firstSet = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -90,7 +90,7 @@
     $: totalSecondArea = secondAreas.reduce((a, b) => a + b, 0);
     $: totalMinArea = minAreas.reduce((a, b) => a + b, 0);
     $: matchPercentage = totalFirstArea === 0 && totalSecondArea === 0? (pointMatcher(firstSet)*100).toFixed(2) : ((((totalMinArea || 0*2) / (totalFirstArea || 0 + totalSecondArea || 0) + pointMatcher(firstSet))/2) * 100).toFixed(2);
-    $: findUndrawnTriangles(firstSet), undrawnTri;
+    $: $percentMatch[scentName] = matchPercentage;
 </script>
 
 

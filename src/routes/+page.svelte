@@ -8,6 +8,7 @@
     import { writable, derived } from 'svelte/store';
     import Reset from '../lib/Reset.svelte';
     import ShowAllWeights from '../lib/ShowAllWeights.svelte';
+    import PotionMatcher from '../lib/PotionMatcher.svelte';
 
     let alerts = {"lemon":[],"breezy":[],"smokey":[],"toasty":[],"cheeky":[],"dewy":[]};
 
@@ -29,7 +30,7 @@
     function checkShitList(scentval, candle){
 
         for(let i = 0; i < candle.length; i++){
-            let categories = $scentVals.shitList;
+            let categories = scentval.shitList;
             for(let j = 0; j < categories.length; j++){
             if(candle[i].scentNotes.includes(categories[j])){
                 let tmp = candle[i].name.split(' ');
@@ -105,6 +106,7 @@
 
   <h1>Quiz v2.0</h1>
   
+  
   {#if $currentQuestion > 0}
   <p>question #{$currentQuestion}</p>
   {/if}
@@ -177,6 +179,7 @@
   {/if}
     <ChangeWeights />
     <CurrProfile />
+    <PotionMatcher/>
     
     <h2>Charts</h2>
     <div class="charts-box">

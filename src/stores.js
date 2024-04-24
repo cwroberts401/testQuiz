@@ -5,6 +5,15 @@ export const scentVals = writable({
     shitList: []
 });
 
+export const percentMatch = writable({
+    "Lemon Fizz" : 0,
+    "Smokey Haze" : 0,
+    "Breezy Bay" : 0,
+    "Cheeky Rose" : 0,
+    "Dewy Days" : 0,
+    "Toasty Vanilla" : 0
+})
+
 export const currentQuestion = writable(0);
 
 export function incrementQ() {
